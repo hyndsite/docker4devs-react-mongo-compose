@@ -1,6 +1,7 @@
 "use strict";
 /* eslint-disable no-console */
 
+require("../shared/lib/extensions");
 import express, {Router}        from "express";
 import bodyParser               from "body-parser";
 import webpack                  from "webpack";

@@ -24,7 +24,12 @@ timelineRouter.route("/api/timeline(/:id/)?")
                 query["end"] = {$lte: endDate};
             }
 
-            const TimelineItem = await getTimelineItemModel();
+            const creds = {
+                "user": "query",
+                "pass": "you cannot escape your destiny"
+            };
+
+            const TimelineItem = await getTimelineItemModel(creds);
             const timelineItems = await TimelineItem.find(query).exec();
 
             res.json({timelineItems: timelineItems});

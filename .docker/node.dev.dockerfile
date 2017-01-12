@@ -1,5 +1,5 @@
-FROM hackershall-prod-i
+FROM maxmccarty/hackershall-prod-i
 
 ENV NODE_ENV=development
 
-CMD ["./initialize.sh"]
+CMD ["./.docker/node_scripts/initialize.sh"]

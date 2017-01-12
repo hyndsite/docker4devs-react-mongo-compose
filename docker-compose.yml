@@ -1,14 +1,27 @@
-version: "2",
+version: "2"
 
 services:
-  node:
-    container_name: hackershall-dev-app
-    image: hackershall-dev-i
+  nginx:
+    container_name: nginx
+    image: maxmccarty/hh-nginx-dev-i
     build:
       context: .
-      dockerfile: ./.docker/node.$(APP_ENV).dockerfile
+      dockerfile: ./.docker/nginx.dev.dockerfile
+    networks:
+      - hackershall-network
+    links:
+      - node:node
     ports:
-      - "7000:7000"
+      - "80:80"
+
+  node:
+    container_name: hackershall-dev-app
+    image: maxmccarty/hackershall-dev-i
+    build:
+      context: .
+      dockerfile: ./.docker/node.dev.dockerfile
+    ports:
+      - "7000"
     networks:
       - hackershall-network
     volumes:
@@ -18,7 +31,7 @@ services:
     working_dir: /var/app
 
   mongo:
-    container_name: hackershall-mongodb
+    container_name: hackershall-dev-mongodb
     image: mongo:3.4.1
     build:
       context: .
@@ -28,7 +41,7 @@ services:
     networks:
       - hackershall-network
     ports:
-      - "27017:27017"
+      - "27017"
 
 networks:
   hackershall-network:

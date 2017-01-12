@@ -11,7 +11,12 @@ export const initialize = async() => {
 };
 
 const seedTimelineEvents = async() => {
-    const TimelineItem = await getTimelineItemModel();
+    const creds = {
+        "user": "modify",
+        "pass": "dontgiveintothehate"
+    };
+
+    const TimelineItem = await getTimelineItemModel(creds);
     const timelineItemsExists = await TimelineItem.count({});
 
     try {

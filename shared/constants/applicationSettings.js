@@ -1,5 +1,5 @@
 "use strict";
 
 export default {
-    serverPath: "http://localhost:7000"
+    serverPath: "http://localhost"
 }
