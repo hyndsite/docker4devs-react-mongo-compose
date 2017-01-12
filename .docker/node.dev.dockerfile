@@ -1,4 +1,4 @@
-FROM maxmccarty/hackershall-prod-i
+FROM hackershall-prod-i
 
 ENV NODE_ENV=development
 
