@@ -11,6 +11,8 @@ export const initialize = async() => {
 };
 
 const seedTimelineEvents = async() => {
+
+    //don't hardcode creds - this is simply for the demo
     const creds = {
         "user": "modify",
         "pass": "dontgiveintothehate"
